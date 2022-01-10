@@ -1,21 +1,25 @@
 package org.olliegator.scala.testcontainers
 
-import com.dimafeng.testcontainers.{Container, ForAllTestContainer, KafkaContainer}
-import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+import com.dimafeng.testcontainers.{ForAllTestContainer, KafkaContainer}
 import org.apache.kafka.clients.consumer.KafkaConsumer
-import org.scalatest.flatspec.AnyFlatSpec
+import org.apache.kafka.clients.producer.{KafkaProducer, ProducerRecord}
+import org.scalatest.{BeforeAndAfter, FlatSpec}
 
 import java.time.Duration
 import java.util
-import java.util.{Properties, UUID}
-import scala.collection.JavaConverters.{asJavaIterableConverter, iterableAsScalaIterableConverter}
-import scala.collection.mutable.ArrayBuffer
+import java.util.Properties
+import scala.collection.JavaConverters.iterableAsScalaIterableConverter
 
-class KafkaClientSpec extends AnyFlatSpec with ForAllTestContainer {
+class KafkaClientSpec extends FlatSpec with BeforeAndAfter with ForAllTestContainer {
 
   // Using the IDE suggestion to override the container doesn't work
   // See: https://github.com/testcontainers/testcontainers-scala/issues/134
   override val container: KafkaContainer = KafkaContainer()
+  var servers : String = null
+
+  before {
+    servers = container.bootstrapServers
+  }
 
   val topic = "topic"
 

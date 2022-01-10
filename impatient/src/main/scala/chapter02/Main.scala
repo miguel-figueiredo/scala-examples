@@ -69,7 +69,8 @@ object Main {
 
     // Exercise 11
     println("Exercise 11")
-    date "$year-$month-$day"
+    // TODO
+    //date "$year-$month-$day"
     println("----------------")
   }
 

@@ -9,7 +9,7 @@ scalaVersion := "2.12.10"
 
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "2.8.0"
 
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9" % Test
+libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.8" % Test
 libraryDependencies += "org.scalatest" %% "scalatest-funspec" % "3.2.9" % Test
 libraryDependencies += "com.dimafeng" %% "testcontainers-scala-scalatest" % "0.39.5" % Test
 libraryDependencies += "com.dimafeng" %% "testcontainers-scala-kafka" % "0.39.5" % Test
